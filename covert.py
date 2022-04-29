@@ -7,11 +7,10 @@ from pyspark.sql import SparkSession, SQLContext
 
 
 def main():
-    input_path = sys.argv[1]
+    input_path = "oci://DE-Bucket@orasenatdpltintegration03/NYT-" + today
     pre, ext = os.path.splitext(input_path)
-    basename = os.path.basename(input_path)[:-5]
-    today = date.today.strftime("%Y-%m-%d")
-    output_path = "oci://DE-Output-Bucket@ orasenatdpltintegration03/NYT" + today + ".csv"
+    today = datetime.date.today()
+    output_path = "oci://DE-Output-Bucket@orasenatdpltintegration03/NYT-" + today
     print(output_path)
 
 # Set up Spark.
